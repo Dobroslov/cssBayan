@@ -1,6 +1,5 @@
 body {
   font-family: Arial, Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 16px;
   line-height: 130%;
   background-color: rgb(59, 59, 59);
 }
@@ -12,16 +11,13 @@ body {
   padding: 0;
 }
 
-.bayan {
-}
-
 .wraper {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 900px;
-  margin: 20px auto;
+  max-width: 1900px;
+  margin: 2.2rem auto;
 }
 
 .bayan__item {
@@ -30,9 +26,8 @@ body {
   flex-direction: column;
   width: 100%;
   background-color: rgb(210, 210, 210);
-  border: 1px solid rgb(246, 150, 34);
-  margin-bottom: 10px;
-  border-radius: 10px;
+  margin-bottom: 0.8rem;
+  border-radius: 0.8rem;
   overflow: hidden;
 }
 
@@ -47,15 +42,16 @@ body {
 
 .bayan__lable::after {
   content: '\002B';
-  color: green;
+  color: rgb(0, 0, 0);
   text-align: center;
   transition: ease-in-out 0.3s;
+  opacity: 0;
 }
 
 .bayan__lable {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1rem 3rem;
   font-size: 2rem;
   line-height: 150%;
   cursor: pointer;
@@ -65,35 +61,44 @@ body {
 
 .bayan__content {
   height: 0;
-
+  display: flex;
   justify-content: center;
   text-align: center;
   padding: 0 1rem;
   cursor: pointer;
-  transition: all 0.4s;
+  transition: all 0.7s;
   background-image: url('./1.gif');
   background-repeat: no-repeat;
   background-position: center;
-
-  /* background-color: rgb(36, 26, 26); */
+  background-size: auto 400px;
+  opacity: 0;
 }
 
-.bayan__lable:hover {
+/* Hover */
+
+.bayan:hover .bayan__lable {
   background-color: burlywood;
 }
 
-.bayan__input:checked + .bayan__lable {
-  background-color: rgb(237, 165, 72);
+.bayan:hover label::after {
+  opacity: 100;
 }
 
 .bayan__content:hover {
-  height: 500px;
-  background-color: rgb(255, 255, 255);
+  height: 50vh;
+  opacity: 100;
 }
 
 .bayan__lable:hover + .bayan__content {
-  background-color: rgb(255, 255, 255);
-  height: 500px;
+  height: 50vh;
+  opacity: 100;
+}
+
+/* Checked */
+
+.bayan__input:checked + .bayan__lable {
+  background-color: rgb(237, 165, 72);
+  font-weight: bold;
 }
 
 .bayan__input:checked + .bayan__lable::after {
@@ -101,5 +106,11 @@ body {
 }
 
 .bayan__input:checked ~ .bayan__content {
-  height: 500px;
+  height: 50vh;
+  opacity: 100;
+}
+
+.bayan__item:hover > .bayan__content {
+  background-color: white;
+  height: 50vh;
 }
