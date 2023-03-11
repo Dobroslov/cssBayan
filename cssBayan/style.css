@@ -14,6 +14,7 @@ body {
 
 .bayan {
 }
+
 .wraper {
   display: flex;
   justify-content: center;
@@ -21,11 +22,6 @@ body {
   flex-direction: column;
   max-width: 900px;
   margin: 20px auto;
-}
-
-.bayan__title-head {
-  font-size: 3rem;
-  color: rgb(251, 182, 78);
 }
 
 .bayan__item {
@@ -36,44 +32,74 @@ body {
   background-color: rgb(210, 210, 210);
   border: 1px solid rgb(246, 150, 34);
   margin-bottom: 10px;
-  border-radius: 8px;
+  border-radius: 10px;
+  overflow: hidden;
 }
+
 .bayan__input {
-  /* -webkit-appearance: none; */
   display: none;
 }
 
-.bayan__input:checked ~ .bayan__content {
-  display: block;
+.bayan__title-head {
+  font-size: 3rem;
+  color: rgb(251, 182, 78);
 }
 
-.bayan__input:checked ~ .bayan__title {
-  background-color: burlywood;
+.bayan__lable::after {
+  content: '\002B';
+  color: green;
+  text-align: center;
+  transition: ease-in-out 0.3s;
 }
 
-.bayan__title {
-  display: block;
-  padding: 10px 20px;
+.bayan__lable {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
   font-size: 2rem;
   line-height: 150%;
   cursor: pointer;
   transition: ease-in-out 0.3s;
-}
-
-.bayan__title:hover {
-  background-color: burlywood;
+  background-color: rgb(180, 179, 179);
 }
 
 .bayan__content {
-  display: none;
+  height: 0;
+
   justify-content: center;
   text-align: center;
-  padding: 20px;
+  padding: 0 1rem;
+  cursor: pointer;
+  transition: all 0.4s;
+  background-image: url('./1.gif');
+  background-repeat: no-repeat;
+  background-position: center;
+
+  /* background-color: rgb(36, 26, 26); */
 }
 
-.bayan__content .bayan__img {
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
+.bayan__lable:hover {
+  background-color: burlywood;
 }
 
+.bayan__input:checked + .bayan__lable {
+  background-color: rgb(237, 165, 72);
+}
+
+.bayan__content:hover {
+  height: 500px;
+  background-color: rgb(255, 255, 255);
+}
+
+.bayan__lable:hover + .bayan__content {
+  background-color: rgb(255, 255, 255);
+  height: 500px;
+}
+
+.bayan__input:checked + .bayan__lable::after {
+  transform: rotate(45deg);
+}
+
+.bayan__input:checked ~ .bayan__content {
+  height: 500px;
+}
