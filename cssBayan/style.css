@@ -67,11 +67,30 @@ body {
   padding: 0 1rem;
   cursor: pointer;
   transition: all 0.7s;
-  background-image: url('./1.gif');
   background-repeat: no-repeat;
   background-position: center;
   background-size: auto 30vh;
   opacity: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 30vh;
+}
+
+#bayan_1 ~ .bayan__content {
+  background-image: url('./images/new_technology.gif');
+}
+
+#bayan_2 ~ .bayan__content {
+  background-image: url('./images/you_are_progmrammer.jpg');
+}
+#bayan_3 ~ .bayan__content {
+  background-image: url('./images/learning.png');
+}
+#bayan_4 ~ .bayan__content {
+  background-image: url('./images/completed.gif');
+}
+#bayan_5 ~ .bayan__content {
+  background-image: url('./images/teach_other.jpg');
 }
 
 /* ------ Hover ------ */
