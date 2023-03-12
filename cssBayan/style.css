@@ -1,12 +1,12 @@
 body {
   font-family: Arial, Verdana, Geneva, Tahoma, sans-serif;
   line-height: 130%;
-  background-color: rgb(59, 59, 59);
+  background-color: rgb(31, 31, 31);
+  margin: 0;
+  padding: 0;
 }
 
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
   padding: 0;
 }
@@ -16,8 +16,9 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 1900px;
-  margin: 2.2rem auto;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
 }
 
 .bayan__item {
@@ -40,20 +41,19 @@ body {
   color: rgb(251, 182, 78);
 }
 
-.bayan__lable::after {
-  content: '\002B';
+.arrow {
   color: rgb(0, 0, 0);
   text-align: center;
   transition: ease-in-out 0.3s;
-  opacity: 0;
+  opacity: 10;
 }
 
 .bayan__lable {
   display: flex;
   justify-content: space-between;
   padding: 1rem 3rem;
-  font-size: 2rem;
-  line-height: 150%;
+  font-size: 2.3rem;
+  line-height: 110%;
   cursor: pointer;
   transition: ease-in-out 0.3s;
   background-color: rgb(180, 179, 179);
@@ -70,47 +70,88 @@ body {
   background-image: url('./1.gif');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: auto 400px;
+  background-size: auto 30vh;
   opacity: 0;
 }
 
-/* Hover */
-
+/* ------ Hover ------ */
 .bayan:hover .bayan__lable {
   background-color: burlywood;
 }
 
-.bayan:hover label::after {
+.bayan:hover .arrow {
   opacity: 100;
 }
 
 .bayan__content:hover {
-  height: 50vh;
+  height: 40vh;
   opacity: 100;
 }
 
 .bayan__lable:hover + .bayan__content {
-  height: 50vh;
-  opacity: 100;
-}
-
-/* Checked */
-
-.bayan__input:checked + .bayan__lable {
-  background-color: rgb(237, 165, 72);
-  font-weight: bold;
-}
-
-.bayan__input:checked + .bayan__lable::after {
-  transform: rotate(45deg);
-}
-
-.bayan__input:checked ~ .bayan__content {
-  height: 50vh;
+  height: 40vh;
   opacity: 100;
 }
 
 .bayan__item:hover > .bayan__content {
   background-color: white;
-  height: 50vh;
+  height: 40vh;
+}
+
+/* ------ Checked ------ */
+.bayan__input:checked + .bayan__lable {
+  background-color: rgb(237, 165, 72);
+  font-weight: bold;
+}
+
+.bayan__input:checked ~ .bayan__lable > .arrow {
+  transform: rotate(90deg);
+}
+
+.bayan__input:checked ~ .bayan__content {
+  height: 40vh;
+  opacity: 100;
+}
+
+/* ------ Active ------ */
+.bayan__item:active {
+  color: rgba(79, 78, 78, 0.9);
+}
+
+.bayan__item:active > .bayan__content {
+  background-color: rgba(232, 217, 196, 0.9);
+  background-blend-mode: luminosity;
+}
+
+/* ------ Media ------ */
+@media (max-width: 820px) {
+  .bayan__title-head {
+    font-size: 2.5rem;
+  }
+
+  .bayan__lable {
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    line-height: 90%;
+  }
+}
+
+@media (max-width: 320px) {
+  .wraper {
+    padding: 0.5rem 1rem;
+  }
+
+  .bayan__title-head {
+    font-size: 1.4rem;
+  }
+
+  .bayan__lable {
+    padding: 0.8rem 0.9rem;
+    font-size: 0.7rem;
+    line-height: 110%;
+  }
+
+  .bayan__item {
+    border-radius: 0.2rem;
+  }
 }
